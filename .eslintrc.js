@@ -34,6 +34,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'react/state-in-constructor': 'off',
     'react/static-property-placement': 'off',
-    'react/button-has-type': 'off'
+    'react/button-has-type': 'off',
+    'no-console': ["error", {allow: ["tron"]}]
   },
 };
