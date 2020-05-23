@@ -1,6 +1,6 @@
 /**
  * Criação do reducer 'cart'
- * @param state estado antes da alteração
+ * @param state estado antes da alteração, iniciado com [] como padrão
  * @param action action disparada
  */
 export default function cart(state = [], action) {

@@ -32,6 +32,8 @@ function Header({ cartSize }) {
 /**
  * O primeiro parâmetro recebido pelo connect é uma função que recece todo o estado do
  * redux e retorna algum reducer dele
+ * Sempre que uma action é disparada, o redux informa as mudanças aos componentes que
+ *  usam o estado alterado, renderizando novamente o componente com as alterações
  */
 export default connect((state) => ({
   cartSize: state.cart.length,
