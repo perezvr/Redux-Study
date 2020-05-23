@@ -2,6 +2,10 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
+
+/* Importante importar a config do Reactotron antes de importar o store do Redux */
+import './config/ReactotronConfig';
+
 import store from './store';
 
 import GlobalStyle from './styles/global';
