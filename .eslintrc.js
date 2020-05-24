@@ -36,6 +36,7 @@ module.exports = {
     'react/static-property-placement': 'off',
     'react/button-has-type': 'off',
     /* Habilitando console.tron */
-    'no-console': ["error", {allow: ["tron"]}]
+    'no-console': ["error", {allow: ["tron"]}],
+    'no-param-reassign': 'off'
   },
 };

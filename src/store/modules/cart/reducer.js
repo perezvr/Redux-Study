@@ -1,3 +1,5 @@
+import produce from 'immer';
+
 /**
  * Criação do reducer 'cart'
  * @param state estado antes da alteração, iniciado com [] como padrão
@@ -11,16 +13,30 @@ export default function cart(state = [], action) {
   switch (action.type) {
     case 'ADD_TO_CART':
       /**
-       * Repetimos o estado anterior, incluindo um novo objeto
-       * Este objeto pega o action.product e inclui a informação amount
+       * Utilizando o immer para verificar se o produto já existe e alterar sua
+       * quantidade, caso contrário, incluí-lo no array, criando um novo objeto
+       * com a informação da quantidade (amount)
        */
-      return [
-        ...state,
-        {
-          ...action.product,
-          amount: 1,
-        },
-      ];
+      return produce(state, (draft) => {
+        const productIndex = draft.findIndex((p) => p.id === action.product.id);
+
+        if (productIndex >= 0) {
+          draft[productIndex].amount += 1;
+        } else {
+          draft.push({
+            ...action.product,
+            amount: 1,
+          });
+        }
+      });
+    case 'REMOVE_FROM_CART':
+      return produce(state, (draft) => {
+        const productIndex = draft.findIndex((p) => p.id === action.id);
+
+        if (productIndex >= 0) {
+          draft.splice(productIndex, 1);
+        }
+      });
     default:
       return state;
   }
