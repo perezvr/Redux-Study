@@ -20,6 +20,7 @@ function Cart({ cart, total, removeFromCart, updateAmount }) {
   function decrement(product) {
     updateAmount(product.id, product.amount - 1);
   }
+
   return (
     <Container>
       <ProductTable>
@@ -112,4 +113,7 @@ const mapsStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(CartActions, dispatch);
 
+ /**
+  * Primeiro parametro sao os states, o segundo os dispatchers
+  */
 export default connect(mapsStateToProps, mapDispatchToProps)(Cart);
