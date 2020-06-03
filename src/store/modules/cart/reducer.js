@@ -11,7 +11,7 @@ export default function cart(state = [], action) {
    * Com isso é necessário um switch para que somente a action passada seja chamada
    */
   switch (action.type) {
-    case '@cart/ADD':
+    case '@cart/ADD_SUCCESS':
       /**
        * Utilizando o immer para verificar se o produto já existe e alterar sua
        * quantidade, caso contrário, incluí-lo no array, criando um novo objeto

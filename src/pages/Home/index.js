@@ -31,10 +31,10 @@ class Home extends Component {
    * Todo componente conectado ao Redux contém uma prop 'dispatch', responsável por
    * disparar uma action ao Redux
    */
-  handleAddProduct = (product) => {
-    const { addToCart } = this.props;
+  handleAddProduct = (id) => {
+    const { addToCartRequest } = this.props;
 
-    addToCart(product);
+    addToCartRequest(id);
   };
 
   render() {
@@ -51,7 +51,7 @@ class Home extends Component {
 
             <button
               type="button"
-              onClick={() => this.handleAddProduct(product)}
+              onClick={() => this.handleAddProduct(product.id)}
             >
               <div>
                 <MdAddShoppingCart size="16" color="#fff" />{' '}
@@ -66,6 +66,10 @@ class Home extends Component {
   }
 }
 
+/**
+ * Criando uma nova prop (amount) pegando a quantidade de cada produto
+ * @param state Primeiro parâmetro recebendo o state global do Redux
+ */
 const mapsStateToProps = (state) => ({
   amount: state.cart.reduce((amount, product) => {
     amount[product.id] = product.amount;
