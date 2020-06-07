@@ -13,7 +13,7 @@ import { addToCartSuccess } from './actions';
  * A action será dispara nao para o reducer, mas para o Middleware que
  * tratará os detalhes do produto antes de adicioná-lo ao carrinho
  */
-function* addToCart(id) {
+function* addToCart({ id }) {
   const response = yield call(api.get, `/products/${id}`);
 
   yield put(addToCartSuccess(response.data));
