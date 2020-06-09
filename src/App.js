@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-
 import { Provider } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 
 /* Importante importar a config do Reactotron antes de importar o store do Redux */
 import './config/ReactotronConfig';
@@ -23,6 +23,7 @@ function App() {
         <Header />
         <Routes />
         <GlobalStyle />
+        <ToastContainer autoClose={1500} />
       </BrowserRouter>
     </Provider>
   );

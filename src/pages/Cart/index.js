@@ -12,13 +12,13 @@ import * as CartActions from '../../store/modules/cart/actions';
 
 import { formatPrice } from '../../util/format';
 
-function Cart({ cart, total, removeFromCart, updateAmount }) {
+function Cart({ cart, total, removeFromCart, updateAmountRequest }) {
   function increment(product) {
-    updateAmount(product.id, product.amount + 1);
+    updateAmountRequest(product.id, product.amount + 1);
   }
 
   function decrement(product) {
-    updateAmount(product.id, product.amount - 1);
+    updateAmountRequest(product.id, product.amount - 1);
   }
 
   return (
@@ -113,7 +113,7 @@ const mapsStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(CartActions, dispatch);
 
- /**
-  * Primeiro parametro sao os states, o segundo os dispatchers
-  */
+/**
+ * Primeiro parametro sao os states, o segundo os dispatchers
+ */
 export default connect(mapsStateToProps, mapDispatchToProps)(Cart);
