@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 
@@ -13,18 +13,23 @@ import Header from './components/Header';
 import Routes from './routes';
 
 /**
+ * Objeto para controle das rotas
+ */
+import history from './services/history';
+
+/**
  * Como o header será clicável e fará parte da navegação, ele também precisa estar dentro
  * do BrowserRouter
  */
 function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <Router history={history}>
         <Header />
         <Routes />
         <GlobalStyle />
         <ToastContainer autoClose={1500} />
-      </BrowserRouter>
+      </Router>
     </Provider>
   );
 }
